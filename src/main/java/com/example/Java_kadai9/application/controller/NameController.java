@@ -7,14 +7,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public  class NameController {
+public  class NameController{
     private final NameService nameService;
 
-    public  NameController(NameService nameService){
+    public  NameController(NameService nameService) {
         this.nameService = nameService;
     }
+
     @GetMapping("/names")
-    public <NameResponse> List<NameResponse> getNames(){
-        return (List<NameResponse>) nameService.findAll();
+    public List<String> getNames() {
+        return nameService.findAll();
     }
+
+
 }
